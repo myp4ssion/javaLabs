@@ -1,27 +1,20 @@
 package com.company;
 
-public class Cat {
-    private int gorun;
-    private int goswim;
-    static int catCount = 0;
-
-    public Cat(){
+public class Cat extends Animal {
+    private static int catCount = 0;
+    public Cat(int maxRunDistance, int maxSwimDistance, String name, String type){
+        super(name, type);
+        this.maxSwimDistance = maxSwimDistance;
+        this.maxRunDistance = maxRunDistance;
         catCount++;
     }
-    void run(int r){
-        gorun = r;
-        if(gorun > 200){
-            System.out.println("Мурзик пробежал только 200м");
-        }else{
-            System.out.println("Мурзик пробежал " + gorun + "м");
-        }
+
+    @Override
+    public void swim(int swimDistance){
+        System.out.println(name + " не умеет плавать");
     }
-    void swim(int s){
-        goswim = s;
-        if(goswim > 0){
-            System.out.println("Увы, но мурзик не умеет плавать");
-        }else{
-            System.out.println("Мурзик проплыл 0м, ведь он не умеет плавать");
-        }
+
+    public static int getCatCount() {
+        return catCount;
     }
 }
